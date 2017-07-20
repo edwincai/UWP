@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="mediaplayer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:mediaplayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Grid>
+        
+        <MediaPlayerElement  x:Name="_mediaPlayerElement" AreTransportControlsEnabled="False"
+                        Width="auto" Height="auto" HorizontalAlignment="Stretch">
+        </MediaPlayerElement>
+
+        <Slider x:Name="timeLine"   ValueChanged="timeLine_ValueChanged" Width="400"  VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"/>
+        
+        <CommandBar x:Name="command" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <AppBarButton x:Name="play" Icon="Play" VerticalAlignment="Bottom" Click="play_Click"/>
+            <AppBarButton x:Name="resume" Icon="Pause" VerticalAlignment="Bottom" Click="resume_Click"/>
+            <AppBarButton x:Name="Volume" Icon="Volume" VerticalAlignment="Bottom" IsCompact="True" Click="Volume_Click">
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout>
+                        <Slider x:Name="volumeSlider"  Width="100" VerticalAlignment="Bottom" 
+                            ValueChanged="volumeSlider_ValueChanged" />
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+            </AppBarButton>
+            <AppBarButton x:Name="fullScreen" Icon="FullScreen" VerticalAlignment="Bottom" Click="fullScreen_Click"/>
+            <AppBarButton x:Name="openFile" Icon="OpenFile" VerticalAlignment="Bottom" Click="openFile_Click"/>
+        </CommandBar>
+    </Grid>
+
+</Page>
